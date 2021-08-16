@@ -32,4 +32,14 @@ public class TestClass {
         userService.addUser();
     }
 
+    /**
+     * 测试AOP
+     */
+    @Test
+    public void test4() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring3.xml");
+        Equipment equipment = applicationContext.getBean("equipment", Equipment.class);
+        equipment.print();
+    }
+
 }
