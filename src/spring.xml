@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user" class="model.User">
+        <property name="userName" value="Illustrious"/>
+        <property name="age" value="16"/>
+        <property name="skills">
+            <array>
+                <value>装甲航母</value>
+            </array>
+        </property>
+        <property name="clothes">
+            <list>
+                <value>异国的光辉</value>
+                <value>爱与希望的星辰</value>
+            </list>
+        </property>
+        <property name="friends">
+            <map>
+                <entry key="皇家" value="Hood"/>
+                <entry key="白鹰" value="Enterprise"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="myFactoryBean" class="model.MyFactoryBean"/>
+
+    <bean id="camp" class="model.Camp" init-method="initMethod" destroy-method="destroyMethod">
+        <property name="campName" value="东煌"/>
+    </bean>
+
+    <bean id="myBeanPostProcessor" class="model.MyBeanPostProcessor"/>
+
+</beans>
