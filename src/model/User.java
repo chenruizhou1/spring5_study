@@ -1,5 +1,8 @@
 package model;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -7,6 +10,7 @@ import java.util.Map;
 /**
  * @author chenruizhou
  */
+@Component
 public class User {
 
     private String userName;

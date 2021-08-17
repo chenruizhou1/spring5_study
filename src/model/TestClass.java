@@ -1,8 +1,10 @@
 package model;
 
+import com.mysql.jdbc.log.Log;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import service.EquipmentService;
 import service.UserService;
 
 /**
@@ -40,6 +42,21 @@ public class TestClass {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring3.xml");
         Equipment equipment = applicationContext.getBean("equipment", Equipment.class);
         equipment.print();
+    }
+
+    /**
+     * 测试JdbcTemplate
+     */
+    @Test
+    public void test5() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring4_jdbcTemplate.xml");
+        EquipmentService equipmentService = applicationContext.getBean("equipmentService", EquipmentService.class);
+        Equipment equipment = new Equipment();
+        equipment.setId("1");
+        equipment.setName("九三式纯氧鱼雷");
+        equipment.setType("设备");
+        equipment.setLevel("T3");
+        equipmentService.addEquipment(equipment);
     }
 
 }
