@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import service.EquipmentService;
+import service.EquipmentService2;
 import service.UserService;
 
 /**
@@ -57,6 +58,16 @@ public class TestClass {
         equipment.setType("设备");
         equipment.setLevel("T3");
         equipmentService.addEquipment(equipment);
+    }
+
+    /**
+     * 测试spring事务
+     */
+    @Test
+    public void test6() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring4_jdbcTemplate.xml");
+        EquipmentService2 equipmentService = applicationContext.getBean("equipmentService2", EquipmentService2.class);
+        equipmentService.updateEquipment1();
     }
 
 }
